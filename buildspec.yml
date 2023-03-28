@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt-get update
+      - apt-get install -y nginx
+
+  build:
+    commands:
+      - nginx -t
+      - cp index.html /var/www/html/
+
+artifacts:
+  files:
+    - '**/*'
